@@ -16,7 +16,7 @@ public static class bd
         using (SqlConnection db = new SqlConnection(_connectionString))
         {
             string sp = "CargarUsuario";
-            db.Execute(sp, new { @id_usuario = user.id, @username = user.username, @nombre = user.nombre, @apellido = user.apellido, @dni = user.dni, @fecha_nacimiento = user.fecha_nacimiento, @foto_perfil = user.foto_perfil, @num_telefono = user.num_telefono, @email = user.email, @id_genero = user.id_genero, @id_pais = user.id_pais, @administrador = user.administrador }, commandType: CommandType.StoredProcedure);
+            db.Execute(sp, new { @id_usuario = user.id, @username = user.username, @password = user.password, @nombre = user.nombre, @apellido = user.apellido, @dni = user.dni, @fecha_nacimiento = user.fecha_nacimiento, @foto_perfil = user.foto_perfil, @num_telefono = user.num_telefono, @email = user.email, @id_genero = user.id_genero, @id_pais = user.id_pais, @administrador = user.administrador }, commandType: CommandType.StoredProcedure);
         }
     }
     public static List<Producto> ListarProductos()
@@ -81,6 +81,22 @@ public static class bd
         {
             string sp = "EliminarProducto";
             db.Execute(sp, new { @id_producto = id_producto }, commandType: CommandType.StoredProcedure);
+        }
+    }
+    public static int VerificarLogin(string username, string password)
+    {
+        using (SqlConnection db = new SqlConnection(_connectionString))
+        {
+            string sp = "VerificarLogin";
+            return db.QueryFirstOrDefault(sp, new { @username = username, @password = password }, commandType: CommandType.StoredProcedure);
+        }
+    }
+    public static int ComprarProducto(Compra compra)
+    {
+        using (SqlConnection db = new SqlConnection(_connectionString))
+        {
+            string sp = "ComprarProducto";
+            return db.Execute(sp, new { @id_usuario = compra.id_usuario, @id_producto = compra.id_producto, @nombre = compra.nombre, @apellido = compra.apellido, @num_tarjeta = compra.num_tarjeta, @fecha_vencimiento = compra.fecha_vencimiento, @cod_seguridad = compra.cod_seguridad }, commandType: CommandType.StoredProcedure);
         }
     }
 }

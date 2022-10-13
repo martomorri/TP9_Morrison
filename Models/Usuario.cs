@@ -4,16 +4,16 @@ namespace TP9_Morrison.Models;
 public class Usuario
 {
     private int _id, _id_genero, _id_pais;
-    private string _username, _nombre, _apellido, _dni, _foto_perfil, _num_telefono, _email, _genero, _pais;
+    private string _username, _password, _nombre, _apellido, _dni, _foto_perfil, _num_telefono, _email, _genero, _pais;
     private DateTime _fecha_nacimiento;
     private bool _administrador;
-    public Usuario(int id, string username, string nombre, string apellido, string dni, DateTime fecha_nacimiento, string foto_perfil, string num_telefono, string email, int id_genero, int id_pais, bool administrador, string genero, string pais)
+    public Usuario(int id, string username, string password, string nombre, string apellido, string dni, DateTime fecha_nacimiento, string foto_perfil, string num_telefono, string email, int id_genero, int id_pais, bool administrador, string genero, string pais)
     {
-        _id = id; _username = username; _nombre = nombre; _apellido = apellido; _dni = dni; _fecha_nacimiento = fecha_nacimiento; _foto_perfil = foto_perfil; _num_telefono = num_telefono; _email = email; _id_genero = id_genero; _id_pais = id_pais; _administrador = administrador; _genero = genero;  _pais = pais;
+        _id = id; _username = username; _password = password; _nombre = nombre; _apellido = apellido; _dni = dni; _fecha_nacimiento = fecha_nacimiento; _foto_perfil = foto_perfil; _num_telefono = num_telefono; _email = email; _id_genero = id_genero; _id_pais = id_pais; _administrador = administrador; _genero = genero;  _pais = pais;
     }
     public Usuario()
     {
-        _id = 0; _username = ""; _nombre = ""; _apellido = ""; _dni = ""; _fecha_nacimiento = new DateTime(1,1,1); _foto_perfil = ""; _num_telefono = ""; _email = ""; _id_genero = 0; _id_pais = 0; _administrador = false; _genero = ""; _pais = "";
+        _id = 0; _username = ""; _password = ""; _nombre = ""; _apellido = ""; _dni = ""; _fecha_nacimiento = new DateTime(1,1,1); _foto_perfil = ""; _num_telefono = ""; _email = ""; _id_genero = 0; _id_pais = 0; _administrador = false; _genero = ""; _pais = "";
     }
     public int id
     {
@@ -23,6 +23,11 @@ public class Usuario
     {
         get { return _username; }
         set { _username = value; }
+    }
+    public string password
+    {
+        get { return _password; }
+        set { _password = value; }
     }
     public string nombre
     {

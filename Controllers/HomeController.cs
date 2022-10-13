@@ -15,7 +15,42 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
+        ViewBag.ListaCategorias = bd.ListarCategorias();
         return View();
+    }
+
+    public IActionResult Registrarse(Usuario user)
+    {
+        bd.CargarUsuario(user);
+        ViewBag.ListaCategorias = bd.ListarCategorias();
+        return View("Index");
+    }
+
+    public int Login(string username, string password)
+    {
+        return bd.VerificarLogin(username, password);
+    }
+
+    public IActionResult Categoria(int id_categoria)
+    {
+        ViewBag.ListaProductos = bd.ListarProductosXCategoria(id_categoria);
+        return View();
+    }
+
+    public IActionResult Perfil(int id_usuario)
+    {
+        ViewBag.Usuario = bd.DevolverUsuario(id_usuario);
+        return View();
+    }
+
+    public Producto InfoProducto(int id_producto)
+    {
+        return bd.ProductoXID(id_producto);
+    }
+
+    public int Comprar(Compra compra)
+    {
+        return bd.ComprarProducto(compra);
     }
 
     public IActionResult Privacy()
