@@ -24,10 +24,12 @@ public class Compra
     public int id_usuario
     {
         get { return _id_usuario; }
+        set { _id_usuario = value; }
     }
     public int id_producto
     {
         get { return _id_producto; }
+        set { _id_producto = value; }
     }
     public string nombre
     {

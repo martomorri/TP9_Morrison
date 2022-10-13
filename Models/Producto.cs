@@ -38,7 +38,8 @@ public class Producto
     }
     public int id_categoria
     {
-        get { return _id; }
+        get { return _id_categoria; }
+        set { _id_categoria = value; }
     }
     public string imagen
     {
@@ -62,12 +63,13 @@ public class Producto
     }
     public int stock_actual
     {
-        get { return _id; }
+        get { return _stock_actual; }
         set { _stock_actual = value; }
     }
     public int id_marca
     {
-        get { return _id; }
+        get { return _id_marca; }
+        set { _id_marca = value; }
     }
     public string categoria
     {
