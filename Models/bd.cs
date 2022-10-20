@@ -10,7 +10,7 @@ using Dapper;
 namespace TP9_Morrison.Models;
 public static class bd
 {
-    private static string _connectionString = @"Server=A-PHZ2-CIDI-053; DataBase=Donnamia; Trusted_Connection=true;";
+    private static string _connectionString = @"Server=A-PHZ2-CIDI-033; DataBase=Donnamia; Trusted_Connection=true;";
     public static void CargarUsuario(Usuario user)
     {
         using (SqlConnection db = new SqlConnection(_connectionString))
