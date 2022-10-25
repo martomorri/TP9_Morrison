@@ -17,6 +17,6 @@ body {
   margin-bottom: 60px;
 }
 
-nav {
+nav, footer {
   background-color: lightpink;
 }

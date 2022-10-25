@@ -26,11 +26,12 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="btn nav-link text-dark" asp-area="" asp-controller="Home"
+                                asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-toggle="dropdown"
-                                aria-expanded="false">
+                            <a class="btn nav-link dropdown-toggle text-dark" href="#" role="button"
+                                data-toggle="dropdown" aria-expanded="false">
                                 Categorias
                             </a>
                             <div class="dropdown-menu">
@@ -44,54 +45,54 @@
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">About
+                            <a class="btn nav-link text-dark" asp-area="" asp-controller="Home"
+                                asp-action="Privacy">About
                                 Us</a>
                         </li>
-                        <ul class="navbar-nav mr-0 mt-2 mt-lg-0" style="float:right;">
-                            <li>
-                                <div class="text-center"><button type="button" class="btn"
-                                        data-toggle="modal" data-target="#modalLogin"><img src="/img/login.png"
-                                            width="25px" height="auto"></button>
-                                </div>
-                                <div class="modal fade" id="modalLogin" tabindex="-1" role="dialog"
-                                    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="modalLoginTitle">Login</h5>
-                                                <button type="button" class="close" data-dismiss="modal"
-                                                    aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <form>
-                                                    <div class="form-group">
-                                                        <p class="small" style="transform: rotate(0);">Don't have an
-                                                            account?
-                                                            <a href="#"
-                                                                class="stretched-link">Register</a>
-                                                        </p>
-                                                        <label for="exampleInputEmail1">Email</label>
-                                                        <input type="email" class="form-control" id="exampleInputEmail1"
-                                                            aria-describedby="emailHelp">
-                                                        <small id="emailHelp" class="form-text text-muted">We'll never
-                                                            share your
-                                                            email with anyone else.</small>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="exampleInputPassword1">Password</label>
-                                                        <input type="password" class="form-control"
-                                                            id="exampleInputPassword1">
-                                                    </div>
-                                                    <button type="submit" class="btn btn-primary">Login</button>
-                                                </form>
-                                            </div>
+                    </ul>
+                    <ul class="navbar-nav mr-0 mt-2 mt-lg-0">
+                        <li>
+                            <div class="text-center"><button type="button" class="btn" data-toggle="modal"
+                                    data-target="#modalLogin"><img src="/img/login.png" width="35px"
+                                        height="auto"></button>
+                            </div>
+                            <div class="modal fade" id="modalLogin" tabindex="-1" role="dialog"
+                                aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="modalLoginTitle">Login</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form>
+                                                <div class="form-group">
+                                                    <p class="small" style="transform: rotate(0);">Don't have an
+                                                        account?
+                                                        <a href="#" class="stretched-link">Register</a>
+                                                    </p>
+                                                    <label for="exampleInputEmail1">Email</label>
+                                                    <input type="email" class="form-control" id="exampleInputEmail1"
+                                                        aria-describedby="emailHelp">
+                                                    <small id="emailHelp" class="form-text text-muted">We'll never
+                                                        share your
+                                                        email with anyone else.</small>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="exampleInputPassword1">Password</label>
+                                                    <input type="password" class="form-control"
+                                                        id="exampleInputPassword1">
+                                                </div>
+                                                <button type="submit" class="btn btn-primary">Login</button>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
-                            </li>
-                        </ul>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </nav>
@@ -104,7 +105,24 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2022 - TP9_Morrison - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            <div class="container pt-4">
+                <section class="mb-4" style="position:absolute; right:2%;">
+                    <a class="btn btn-floating btn-lg text-dark m-1" href="https://www.facebook.com/"
+                        role="button" data-mdb-ripple-color="dark"><img src="/img/facebook.png" width="50px"></a>
+                    <a class="btn btn-floating btn-lg text-dark m-1" href="https://whatsapp.com/"
+                        role="button" data-mdb-ripple-color="dark"><img src="/img/whatsapp.png" width="50px"></a>
+                    <a class="btn btn-floating btn-lg text-dark m-1" href="https://mail.google.com/"
+                        role="button" data-mdb-ripple-color="dark"><img src="/img/gmail.png" width="50px"></a>
+                    <a class="btn btn-floating btn-lg text-dark m-1" href="https://www.instagram.com/"
+                        role="button" data-mdb-ripple-color="dark"><img src="/img/instagram.png" width="50px"></a>
+                </section>
+                <img src="/img/logo.png" width="100px" style="position:absolute; left:2%;">
+            </div>
+            <div class="text-center text-dark" style="line-height:normal;">
+                <p>+54 9 11 6120-8022</p>
+                <p>donnamia18@gmail.com</p>
+                <p>Buenos Aires, Capital Federal</p>
+            </div>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

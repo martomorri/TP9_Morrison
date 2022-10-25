@@ -27,6 +27,7 @@
 @{
     foreach (string item in ViewBag.ListaCategorias)
     {
-        <a href="#" class="btn btn-light">@item</a>
+        string foto = "/img/" + item + ".jpg";
+        <a href="#" class="btn btn-light"><img src=@foto width="200px"><br>@item</a>
     }
 }

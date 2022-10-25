@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "92pXTlETeMRpOFSJ/84EFOeAqjAssla6AajGRPgB78E=",
+  "Hash": "A5MzihVs8e/udAYic6nV8Ih0tmenTWpHH15z3CWN7Vs=",
   "Source": "TP9_Morrison",
   "BasePath": "_content/TP9_Morrison",
   "Mode": "Default",
@@ -83,6 +83,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\46873102\\Desktop\\TP9_Morrison\\wwwroot\\img\\login.png",
+      "SourceId": "TP9_Morrison",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\46873102\\Desktop\\TP9_Morrison\\wwwroot\\",
+      "BasePath": "_content/TP9_Morrison",
+      "RelativePath": "img/login.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\login.png"
     },
     {
       "Identity": "C:\\Users\\46873102\\Desktop\\TP9_Morrison\\wwwroot\\img\\logo.png",
