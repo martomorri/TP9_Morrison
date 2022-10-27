@@ -10,7 +10,7 @@ using Dapper;
 namespace TP9_Morrison.Models;
 public static class bd
 {
-    private static string _connectionString = @"Server=A-PHZ2-CIDI-014; DataBase=Donnamia; Trusted_Connection=true;";
+    private static string _connectionString = @"Server=A-PHZ2-CIDI-034; DataBase=Donnamia; Trusted_Connection=true;";
     public static void CargarUsuario(Usuario user)
     {
         using (SqlConnection db = new SqlConnection(_connectionString))
@@ -51,12 +51,12 @@ public static class bd
             return db.QueryFirstOrDefault<Usuario>(sp, new { @id_usuario = id_usuario }, commandType: CommandType.StoredProcedure);
         }
     }
-    public static List<string> ListarCategorias()
+    public static List<Categoria> ListarCategorias()
     {
         using (SqlConnection db = new SqlConnection(_connectionString))
         {
             string sp = "ListarCategorias";
-            return db.Query<string>(sp, commandType: CommandType.StoredProcedure).ToList();
+            return db.Query<Categoria>(sp, commandType: CommandType.StoredProcedure).ToList();
         }
     }
     public static List<string> ListarPaises()

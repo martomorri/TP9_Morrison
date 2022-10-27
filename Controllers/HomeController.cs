@@ -34,6 +34,7 @@ public class HomeController : Controller
     public IActionResult Categoria(int id_categoria)
     {
         ViewBag.ListaProductos = bd.ListarProductosXCategoria(id_categoria);
+        ViewBag.Categoria = ViewBag.ListaProductos[1].categoria;
         return View();
     }
 

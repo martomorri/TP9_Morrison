@@ -1,0 +1,18 @@
+<h1>@ViewBag.Categoria</h1>
+
+@{
+    foreach (Producto item in ViewBag.ListaProductos)
+    {
+        <div class="ml-5 col-3">
+            <div class="card" style="width: 18rem;">
+                <img src="@item.imagen" class="card-img-top">
+                <div class="card-body">
+                    <h5 class="card-title">@item.nombre</h5>
+                    <h6>@item.precio</h6>
+                    <a href="#" class="btn btn-primary">Ver
+                        mas</a>
+                </div>
+            </div>
+        </div>
+    }
+}
