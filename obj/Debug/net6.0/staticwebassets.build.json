@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "4GZes/wJzX2e1T5EtOH250aVZbwcsTXlZpQEGrfXt/M=",
+  "Hash": "pSS9rai+6SOyMVRkS8RYvzFvQTCdQBeguOL68ucbZy8=",
   "Source": "TP9_Morrison",
   "BasePath": "_content/TP9_Morrison",
   "Mode": "Default",
@@ -202,6 +202,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\carrusel5.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\46873102\\Desktop\\TP9_Morrison\\wwwroot\\img\\cross.PNG",
+      "SourceId": "TP9_Morrison",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\46873102\\Desktop\\TP9_Morrison\\wwwroot\\",
+      "BasePath": "_content/TP9_Morrison",
+      "RelativePath": "img/cross.PNG",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\cross.PNG"
     },
     {
       "Identity": "C:\\Users\\46873102\\Desktop\\TP9_Morrison\\wwwroot\\img\\facebook.png",

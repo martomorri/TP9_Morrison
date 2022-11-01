@@ -19,7 +19,12 @@ public class HomeController : Controller
         return View();
     }
 
-    public IActionResult Registrarse(Usuario user)
+    public IActionResult Registrarse()
+    {
+        return View();
+    }
+    
+    public IActionResult GuardarUsuario(Usuario user)
     {
         bd.CargarUsuario(user);
         ViewBag.ListaCategorias = bd.ListarCategorias();
@@ -34,8 +39,9 @@ public class HomeController : Controller
     public IActionResult Categoria(int id_categoria)
     {
         ViewBag.ListaProductos = bd.ListarProductosXCategoria(id_categoria);
-        ViewBag.Categoria = ViewBag.ListaProductos[1].categoria;
-        return View();
+        ViewBag.Categoria = bd.ListarCategoriaXId(id_categoria);
+        if (ViewBag.ListaProductos.Count == 0) return View("CategoriaVacia");
+        else return View();
     }
 
     public IActionResult Perfil(int id_usuario)

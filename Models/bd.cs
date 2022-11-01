@@ -10,13 +10,13 @@ using Dapper;
 namespace TP9_Morrison.Models;
 public static class bd
 {
-    private static string _connectionString = @"Server=A-PHZ2-CIDI-034; DataBase=Donnamia; Trusted_Connection=true;";
+    private static string _connectionString = @"Server=A-PHZ2-CIDI-014; DataBase=Donnamia; Trusted_Connection=true;";
     public static void CargarUsuario(Usuario user)
     {
         using (SqlConnection db = new SqlConnection(_connectionString))
         {
             string sp = "CargarUsuario";
-            db.Execute(sp, new { @id_usuario = user.id, @username = user.username, @password = user.password, @nombre = user.nombre, @apellido = user.apellido, @dni = user.dni, @fecha_nacimiento = user.fecha_nacimiento, @foto_perfil = user.foto_perfil, @num_telefono = user.num_telefono, @email = user.email, @id_genero = user.id_genero, @id_pais = user.id_pais, @administrador = user.administrador }, commandType: CommandType.StoredProcedure);
+            db.Execute(sp, new { @id_usuario = user.id, @username = user.username, @password = user.password, @nombre = user.nombre, @apellido = user.apellido, @fecha_nacimiento = user.fecha_nacimiento, @num_telefono = user.num_telefono, @email = user.email, @administrador = user.administrador }, commandType: CommandType.StoredProcedure);
         }
     }
     public static List<Producto> ListarProductos()
@@ -59,11 +59,11 @@ public static class bd
             return db.Query<Categoria>(sp, commandType: CommandType.StoredProcedure).ToList();
         }
     }
-    public static List<string> ListarPaises()
+    public static List<string> ListarProvincias()
     {
         using (SqlConnection db = new SqlConnection(_connectionString))
         {
-            string sp = "ListarPaises";
+            string sp = "ListarProvincias";
             return db.Query<string>(sp, commandType: CommandType.StoredProcedure).ToList();
         }
     }
@@ -96,7 +96,15 @@ public static class bd
         using (SqlConnection db = new SqlConnection(_connectionString))
         {
             string sp = "ComprarProducto";
-            return db.Execute(sp, new { @id_usuario = compra.id_usuario, @id_producto = compra.id_producto, @nombre = compra.nombre, @apellido = compra.apellido, @num_tarjeta = compra.num_tarjeta, @fecha_vencimiento = compra.fecha_vencimiento, @cod_seguridad = compra.cod_seguridad }, commandType: CommandType.StoredProcedure);
+            return db.Execute(sp, new { @id_usuario = compra.id_usuario, @id_producto = compra.id_producto, @nombre = compra.nombre, @apellido = compra.apellido, @dni = compra.dni, @num_tarjeta = compra.num_tarjeta, @fecha_vencimiento = compra.fecha_vencimiento, @cod_seguridad = compra.cod_seguridad }, commandType: CommandType.StoredProcedure);
+        }
+    }
+    public static string ListarCategoriaXId(int id_categoria)
+    {
+        using (SqlConnection db = new SqlConnection(_connectionString))
+        {
+            string sql = "SELECT categoria FROM Categoria WHERE id = @id_categoria";
+            return db.QueryFirstOrDefault<string>(sql, new { @id_categoria = id_categoria });
         }
     }
 }

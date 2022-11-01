@@ -7,15 +7,15 @@ namespace TP9_Morrison.Models;
 public class Compra
 {
     private int _id, _id_usuario, _id_producto;
-    private string _nombre, _apellido, _num_tarjeta, _cod_seguridad;
+    private string _nombre, _apellido, _dni, _num_tarjeta, _cod_seguridad;
     private DateTime _fecha_vencimiento;
-    public Compra(int id, int id_usuario, int id_producto, string nombre, string apellido, string num_tarjeta, DateTime fecha_vencimiento, string cod_seguridad)
+    public Compra(int id, int id_usuario, int id_producto, string nombre, string apellido, string dni, string num_tarjeta, DateTime fecha_vencimiento, string cod_seguridad)
     {
-        _id = id; _id_usuario = id_usuario; _id_producto = id_producto; _nombre = nombre; _apellido = apellido; _num_tarjeta = num_tarjeta; _fecha_vencimiento = fecha_vencimiento; _cod_seguridad = cod_seguridad;
+        _id = id; _id_usuario = id_usuario; _id_producto = id_producto; _nombre = nombre; _apellido = apellido; _dni = dni; _num_tarjeta = num_tarjeta; _fecha_vencimiento = fecha_vencimiento; _cod_seguridad = cod_seguridad;
     }
     public Compra()
     {
-        _id = 0; _id_usuario = 0; _id_producto = 0; _nombre = ""; _apellido = ""; _num_tarjeta = ""; _fecha_vencimiento = new DateTime(1,1,1); _cod_seguridad = "";
+        _id = 0; _id_usuario = 0; _id_producto = 0; _nombre = ""; _apellido = ""; _dni=""; _num_tarjeta = ""; _fecha_vencimiento = new DateTime(1,1,1); _cod_seguridad = "";
     }
     public int id
     {
@@ -40,6 +40,11 @@ public class Compra
     {
         get { return _apellido; }
         set { _apellido = value; }
+    }
+    public string dni
+    {
+        get { return _dni; }
+        set { _dni = value; }
     }
     public string num_tarjeta
     {
