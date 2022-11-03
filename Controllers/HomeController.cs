@@ -21,6 +21,7 @@ public class HomeController : Controller
 
     public IActionResult Registrarse()
     {
+        ViewBag.ListaProvincias = bd.ListarProvincias();
         return View();
     }
     
@@ -55,7 +56,12 @@ public class HomeController : Controller
         return bd.ProductoXID(id_producto);
     }
 
-    public int Comprar(Compra compra)
+    public IActionResult Comprar(int id_producto)
+    {
+        return View();
+    }
+
+    public int ConfirmarCompra(Compra compra)
     {
         return bd.ComprarProducto(compra);
     }

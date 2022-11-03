@@ -9,9 +9,10 @@
                 <img src="@item.imagen" class="card-img-top">
                 <div class="card-body">
                     <h5 class="card-title">@item.nombre</h5>
-                    <h6>@item.precio</h6>
-                    <a href="#" class="btn btn-primary">Ver
+                    <h6 class="text-success">$@item.precio</h6>
+                    <a class="btn btn-secondary" href='@Url.Action("InfoProducto","Home", new { id_producto = item.id })' class="btn btn-primary">Ver
                         mas</a>
+                    <a class="btn btn-primary" href='@Url.Action("Comprar","Home", new { id_producto = item.id })'>Comprar</a>
                 </div>
             </div>
         </div>

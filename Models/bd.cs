@@ -10,13 +10,13 @@ using Dapper;
 namespace TP9_Morrison.Models;
 public static class bd
 {
-    private static string _connectionString = @"Server=A-PHZ2-CIDI-014; DataBase=Donnamia; Trusted_Connection=true;";
+    private static string _connectionString = @"Server=A-PHZ2-CIDI-006; DataBase=Donnamia; Trusted_Connection=true;";
     public static void CargarUsuario(Usuario user)
     {
         using (SqlConnection db = new SqlConnection(_connectionString))
         {
             string sp = "CargarUsuario";
-            db.Execute(sp, new { @id_usuario = user.id, @username = user.username, @password = user.password, @nombre = user.nombre, @apellido = user.apellido, @fecha_nacimiento = user.fecha_nacimiento, @num_telefono = user.num_telefono, @email = user.email, @administrador = user.administrador }, commandType: CommandType.StoredProcedure);
+            db.Execute(sp, new { @nombre = user.nombre, @apellido = user.apellido, @email = user.email, @password = user.password, @fecha_nacimiento = user.fecha_nacimiento, @direccion = user.direccion, @id_provincia = user.id_provincia, @num_telefono = user.num_telefono, @administrador = user.administrador }, commandType: CommandType.StoredProcedure);
         }
     }
     public static List<Producto> ListarProductos()
