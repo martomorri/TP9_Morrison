@@ -19,6 +19,11 @@ public class HomeController : Controller
         return View();
     }
 
+    public IActionResult AboutUs()
+    {
+        return View();
+    }
+
     public IActionResult Registrarse()
     {
         ViewBag.ListaProvincias = bd.ListarProvincias();
@@ -61,9 +66,10 @@ public class HomeController : Controller
         return View();
     }
 
-    public int ConfirmarCompra(Compra compra)
+    public IActionResult ConfirmarCompra(Compra compra)
     {
-        return bd.ComprarProducto(compra);
+        bd.ComprarProducto(compra);
+        return View("Index");
     }
 
     public IActionResult Privacy()

@@ -10,7 +10,7 @@ using Dapper;
 namespace TP9_Morrison.Models;
 public static class bd
 {
-    private static string _connectionString = @"Server=A-PHZ2-CIDI-006; DataBase=Donnamia; Trusted_Connection=true;";
+    private static string _connectionString = @"Server=A-PHZ2-CIDI-015; DataBase=Donnamia; Trusted_Connection=true;";
     public static void CargarUsuario(Usuario user)
     {
         using (SqlConnection db = new SqlConnection(_connectionString))
@@ -91,12 +91,12 @@ public static class bd
             return db.QueryFirstOrDefault(sp, new { @username = username, @password = password }, commandType: CommandType.StoredProcedure);
         }
     }
-    public static int ComprarProducto(Compra compra)
+    public static void ComprarProducto(Compra compra)
     {
         using (SqlConnection db = new SqlConnection(_connectionString))
         {
             string sp = "ComprarProducto";
-            return db.Execute(sp, new { @id_usuario = compra.id_usuario, @id_producto = compra.id_producto, @nombre = compra.nombre, @apellido = compra.apellido, @dni = compra.dni, @num_tarjeta = compra.num_tarjeta, @fecha_vencimiento = compra.fecha_vencimiento, @cod_seguridad = compra.cod_seguridad }, commandType: CommandType.StoredProcedure);
+            db.Execute(sp, new { @id_usuario = compra.id_usuario, @id_producto = compra.id_producto, @nombre = compra.nombre, @apellido = compra.apellido, @dni = compra.dni, @num_tarjeta = compra.num_tarjeta, @fecha_vencimiento = compra.fecha_vencimiento, @cod_seguridad = compra.cod_seguridad }, commandType: CommandType.StoredProcedure);
         }
     }
     public static string ListarCategoriaXId(int id_categoria)
