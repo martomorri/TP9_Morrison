@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "pSS9rai+6SOyMVRkS8RYvzFvQTCdQBeguOL68ucbZy8=",
+  "Hash": "LTozKUL6wmhNB7uERn7dYx/o4KWe0fFiZCmig38VTt4=",
   "Source": "TP9_Morrison",
   "BasePath": "_content/TP9_Morrison",
   "Mode": "Default",
@@ -355,6 +355,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\monos y enteritos.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\46873102\\Desktop\\TP9_Morrison\\wwwroot\\img\\nuevo.png",
+      "SourceId": "TP9_Morrison",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\46873102\\Desktop\\TP9_Morrison\\wwwroot\\",
+      "BasePath": "_content/TP9_Morrison",
+      "RelativePath": "img/nuevo.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\nuevo.png"
     },
     {
       "Identity": "C:\\Users\\46873102\\Desktop\\TP9_Morrison\\wwwroot\\img\\pantuflas.jpg",

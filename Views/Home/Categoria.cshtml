@@ -11,9 +11,9 @@
                     <h5 class="card-title">@item.nombre</h5>
                     <h6 class="text-success">$@item.precio</h6>
                     <button class="btn btn-secondary" onclick="VerInfoProducto(@item.id)" class="btn btn-primary"
-                    data-toggle="modal" data-target="#modalProducto">Ver
+                    data-toggle="modal" data-target="#modal">Ver
                         mas</button>
-                    <div class="modal fade" id="modalProducto" tabindex="-1" role="dialog"
+                    <div class="modal fade" id="modal" tabindex="-1" role="dialog"
                     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered" role="document">
                             <div class="modal-content">
@@ -25,13 +25,15 @@
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <p class="font-italic text-center" id="texto"></p>
                                     <div class="text-center">
-                                        <img class="w-25" id="imagen" src="">
+                                        <img class="w-75" id="imagen" src=""><br>
                                     </div>
+                                    <div id="texto"></div>
                                 </div>
                                 <div class="modal-footer">
-                                    <a href='@Url.Action("Index","Home")' class="btn btn-primary">Seguir comprando</a>
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close">
+                                        Seguir comprando
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -41,4 +43,5 @@
             </div>
         </div>
     }
+    <button class="btn btn-light" style="position:absolute; right:20px;" onclick="AgregarProducto()" data-toggle="modal" data-target="#modal"><img src="/img/nuevo.png" width="50px"></button>
 }
