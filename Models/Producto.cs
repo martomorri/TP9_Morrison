@@ -7,15 +7,15 @@ namespace TP9_Morrison.Models;
 public class Producto
 {
     private int _id, _id_categoria, _stock_actual, _id_marca;
-    private string _nombre, _descripcion, _articulo, _imagen, _color, _talle, _categoria, _marca;
+    private string _nombre, _descripcion, _articulo, _imagen, _color, _talle;
     private double _precio;
-    public Producto(int id, string nombre, string descripcion, string articulo, int id_categoria, string imagen, double precio, string color, string talle, int stock_actual, int id_marca, string categoria, string marca)
+    public Producto(int id, string nombre, string descripcion, string articulo, int id_categoria, string imagen, double precio, string color, string talle, int stock_actual, int id_marca)
     {
-        _id = id; _nombre = nombre; _descripcion = descripcion; _articulo = articulo; _id_categoria = id_categoria; _imagen = imagen; _precio = precio; _color = color; _talle = talle; _stock_actual = stock_actual; _id_marca = id_marca; _categoria = categoria; _marca = marca;
+        _id = id; _nombre = nombre; _descripcion = descripcion; _articulo = articulo; _id_categoria = id_categoria; _imagen = imagen; _precio = precio; _color = color; _talle = talle; _stock_actual = stock_actual; _id_marca = id_marca;
     }
     public Producto() 
     {
-        _id = 0; _nombre = ""; _descripcion = ""; _articulo = ""; _id_categoria = 0; _imagen = ""; _precio = 0; _color = ""; _talle = ""; _stock_actual = 0; _id_marca = 0; _categoria = ""; _marca = "";
+        _id = 0; _nombre = ""; _descripcion = ""; _articulo = ""; _id_categoria = 0; _imagen = ""; _precio = 0; _color = ""; _talle = ""; _stock_actual = 0; _id_marca = 0;
     }
     public int id
     {
@@ -71,15 +71,5 @@ public class Producto
     {
         get { return _id_marca; }
         set { _id_marca = value; }
-    }
-    public string categoria
-    {
-        get { return _categoria; }
-        set { _categoria = value; }
-    }
-    public string marca
-    {
-        get { return _marca; }
-        set { _marca = value; }
     }
 }
