@@ -4,53 +4,55 @@
     <form method="POST" action='@Url.Action("GuardarUsuario","Home")' class="m-5">
         <div class="form-row">
             <div class="col">
-                <label for="formGroupExampleInput">Nombre</label>
-                <input type="text" class="form-control" placeholder="First name">
+                <label>Nombre</label>
+                <input type="text" class="form-control" name="nombre">
             </div>
             <div class="col">
-                <label for="formGroupExampleInput">Apellido</label>
-                <input type="text" class="form-control" placeholder="Last name">
+                <label>Apellido</label>
+                <input type="text" class="form-control" name="apellido">
             </div>
         </div>
         <p></p>
         <div class="form-row">
             <div class="form-group col">
-                <label for="exampleInputEmail1">Email</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
-                    else.</small>
+                <label>Email</label>
+                <input type="email" class="form-control" placeholder="example@gmail.com" name="email">
             </div>
             <div class="form-group col">
-                <label for="exampleInputPassword1">Contraseña</label>
-                <input type="password" class="form-control" id="exampleInputPassword1">
+                <label>Contraseña</label>
+                <input type="password" class="form-control" name="password">
             </div>
         </div>
         <div class="form-row">
             <div class="form-group col">
-                <label for="fecha_nacimiento">Fecha de Nacimiento</label>
-                <input type="date" class="form-control" id="fecha_nacimiento">
+                <label>Fecha de Nacimiento</label>
+                <input type="date" class="form-control" name="fecha_nacimiento">
             </div>
             <div class="form-group col">
-                <label for="direccion">Direccion</label>
-                <input type="text" class="form-control" id="direccion">
+                <label>Direccion</label>
+                <input type="text" class="form-control" name="direccion">
             </div>
         </div>
         <p></p>
         <div class="form-row">
             <div class="form-group col">
-                <label for="provincia">Localidad/Provincia</label>
-                <select class="form-control" id="provincia">
+                <label>Localidad/Provincia</label>
+                <select class="form-control" name="provincia">
                     <option selected></option>
-                    @foreach (string item in ViewBag.ListaProvincias)
+                    @foreach (Provincia item in ViewBag.ListaProvincias)
                     {
-                        <option>@item</option>
+                        <option>@item.provincia</option>
                     }
                 </select>
             </div>
             <div class="form-group col">
-                <label for="num_telefono">Num. de Telefono</label>
-                <input type="text" class="form-control" id="num_telefono">
+                <label>Num. de Telefono</label>
+                <input type="text" class="form-control" name="num_telefono">
+                <input type="hidden" name="administrador" value="false">
             </div>
+        </div>
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary">Registrarse</button>
         </div>
     </form>
 </div>

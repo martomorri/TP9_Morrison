@@ -34,13 +34,13 @@
                                 Categorias
                             </a>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item text-dark" href="#">Pijamas</a>
-                                <a class="dropdown-item text-dark" href="#">Camisones/Remerones</a>
-                                <a class="dropdown-item text-dark" href="#">Batas</a>
-                                <a class="dropdown-item text-dark" href="#">Pantuflas</a>
-                                <a class="dropdown-item text-dark" href="#">Camisetas</a>
-                                <a class="dropdown-item text-dark" href="#">Monos/Enteritos</a>
-                                <a class="dropdown-item text-dark" href="#">Vestidos Playeros</a>
+                                <a class="dropdown-item text-dark" href='@Url.Action("Categoria","Home", new { id_categoria = 8 })'>Pijamas</a>
+                                <a class="dropdown-item text-dark" href='@Url.Action("Categoria","Home", new { id_categoria = 12 })'>Camisones/Remerones</a>
+                                <a class="dropdown-item text-dark" href='@Url.Action("Categoria","Home", new { id_categoria = 13 })'>Batas</a>
+                                <a class="dropdown-item text-dark" href='@Url.Action("Categoria","Home", new { id_categoria = 14 })'>Pantuflas</a>
+                                <a class="dropdown-item text-dark" href='@Url.Action("Categoria","Home", new { id_categoria = 15 })'>Camisetas</a>
+                                <a class="dropdown-item text-dark" href='@Url.Action("Categoria","Home", new { id_categoria = 16 })'>Monos/Enteritos</a>
+                                <a class="dropdown-item text-dark" href='@Url.Action("Categoria","Home", new { id_categoria = 17 })'>Vestidos Playeros</a>
                             </div>
                         </li>
                         <li class="nav-item">
@@ -50,44 +50,8 @@
                     </ul>
                     <ul class="navbar-nav mr-0 mt-2 mt-lg-0">
                         <li>
-                            <div class="text-center"><button type="button" class="btn" data-toggle="modal"
-                                    data-target="#modalLogin"><img src="/img/login.png" width="35px"
-                                        height="auto"></button>
-                            </div>
-                            <div class="modal fade" id="modalLogin" tabindex="-1" role="dialog"
-                                aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="modalLoginTitle">Login</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <form>
-                                                <div class="form-group">
-                                                    <p class="small" style="transform: rotate(0);">Don't have an
-                                                        account?
-                                                        <a href='@Url.Action("Registrarse","Home")' class="stretched-link">Register</a>
-                                                    </p>
-                                                    <label for="exampleInputEmail1">Email</label>
-                                                    <input type="email" class="form-control" id="exampleInputEmail1"
-                                                        aria-describedby="emailHelp">
-                                                    <small id="emailHelp" class="form-text text-muted">We'll never
-                                                        share your
-                                                        email with anyone else.</small>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="exampleInputPassword1">Password</label>
-                                                    <input type="password" class="form-control"
-                                                        id="exampleInputPassword1">
-                                                </div>
-                                                <button type="submit" class="btn btn-primary">Login</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="text-center"><a href='@Url.Action("BotonUser","Home")' class="btn"><img
+                                        src="/img/login.png" width="35px" height="auto"></a>
                             </div>
                         </li>
                     </ul>
@@ -101,18 +65,18 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted " >
+    <footer class="border-top footer text-muted ">
         <div class="container">
             <div class="container pt-4">
                 <section class="mb-4" style="position:absolute; right:2%;">
-                    <a class="btn btn-floating btn-lg text-dark m-1" href="https://www.facebook.com/"
-                        role="button" data-mdb-ripple-color="dark"><img src="/img/facebook.png" width="50px"></a>
-                    <a class="btn btn-floating btn-lg text-dark m-1" href="https://whatsapp.com/"
-                        role="button" data-mdb-ripple-color="dark"><img src="/img/whatsapp.png" width="50px"></a>
-                    <a class="btn btn-floating btn-lg text-dark m-1" href="https://mail.google.com/"
-                        role="button" data-mdb-ripple-color="dark"><img src="/img/gmail.png" width="50px"></a>
-                    <a class="btn btn-floating btn-lg text-dark m-1" href="https://www.instagram.com/"
-                        role="button" data-mdb-ripple-color="dark"><img src="/img/instagram.png" width="50px"></a>
+                    <a class="btn btn-floating btn-lg text-dark m-1" href="https://www.facebook.com/" role="button"
+                        data-mdb-ripple-color="dark"><img src="/img/facebook.png" width="50px"></a>
+                    <a class="btn btn-floating btn-lg text-dark m-1" href="https://whatsapp.com/" role="button"
+                        data-mdb-ripple-color="dark"><img src="/img/whatsapp.png" width="50px"></a>
+                    <a class="btn btn-floating btn-lg text-dark m-1" href="https://mail.google.com/" role="button"
+                        data-mdb-ripple-color="dark"><img src="/img/gmail.png" width="50px"></a>
+                    <a class="btn btn-floating btn-lg text-dark m-1" href="https://www.instagram.com/" role="button"
+                        data-mdb-ripple-color="dark"><img src="/img/instagram.png" width="50px"></a>
                 </section>
                 <img src="/img/logo.png" width="100px" style="position:absolute; left:2%;">
             </div>
@@ -124,11 +88,8 @@
         </div>
     </footer>
     <script src="~/js/site.js" asp-append-version="true"></script>
-    <script
-      src="https://code.jquery.com/jquery-3.6.0.min.js"
-      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
         integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
         crossorigin="anonymous"></script>

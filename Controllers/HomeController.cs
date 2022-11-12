@@ -1,16 +1,22 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using TP9_Morrison.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
+using System.IO;
+using Microsoft.AspNetCore.Hosting;
 
 namespace TP9_Morrison.Controllers;
 
 public class HomeController : Controller
 {
-    private readonly ILogger<HomeController> _logger;
-
-    public HomeController(ILogger<HomeController> logger)
+    private IWebHostEnvironment Environment;
+    public HomeController(IWebHostEnvironment environment)
     {
-        _logger = logger;
+        Environment = environment;
     }
 
     public IActionResult Index()
@@ -29,31 +35,55 @@ public class HomeController : Controller
         ViewBag.ListaProvincias = bd.ListarProvincias();
         return View();
     }
-    
-    public IActionResult GuardarUsuario(Usuario user)
+
+    [HttpPost]
+    public IActionResult GuardarUsuario(Usuario user, string provincia)
     {
+        List<Provincia> ListaProvincias = bd.ListarProvincias();
+        int pos = -1, i = 0;
+        while (i < ListaProvincias.Count && pos == -1)
+        {
+            if (provincia == ListaProvincias[i].provincia) pos = i;
+            else i++;
+        }
+        user.id_provincia = ListaProvincias[pos].id;
+        user.loggedin = true;
         bd.CargarUsuario(user);
         ViewBag.ListaCategorias = bd.ListarCategorias();
         return View("Index");
     }
 
-    public int Login(string username, string password)
+    [HttpPost]
+    public IActionResult VerificarLogin(string email, string password)
     {
-        return bd.VerificarLogin(username, password);
+        bool loggedin = bd.VerificarLogin(email, password);
+        if (!loggedin)
+        {
+            ViewBag.MensajeError = "Error. Los datos ingresados son incorrectos.";
+            return View("Login");
+        }
+        else
+        {
+            ViewBag.ListaCategorias = bd.ListarCategorias();
+            return View("Index");
+        }
     }
 
     public IActionResult Categoria(int id_categoria)
     {
         ViewBag.ListaProductos = bd.ListarProductosXCategoria(id_categoria);
         ViewBag.Categoria = bd.ListarCategoriaXId(id_categoria);
+        ViewBag.Usuario = bd.DevolverUsuario();
         if (ViewBag.ListaProductos.Count == 0) return View("CategoriaVacia");
         else return View();
     }
 
-    public IActionResult Perfil(int id_usuario)
+    public IActionResult BotonUser()
     {
-        ViewBag.Usuario = bd.DevolverUsuario(id_usuario);
-        return View();
+        ViewBag.user = bd.DevolverUsuario();
+        ViewBag.ListaProvincias = bd.ListarProvincias();
+        if (ViewBag.user.loggedin) return View("Perfil");
+        else return View("Login");
     }
 
     public Producto InfoProducto(int id_producto)
@@ -63,13 +93,49 @@ public class HomeController : Controller
 
     public IActionResult Comprar(int id_producto)
     {
-        return View();
+        Usuario user = bd.DevolverUsuario();
+        ViewBag.IdUsuario = user.id;
+        ViewBag.IdProducto = id_producto;
+        if (user.loggedin) return View();
+        else return View("Login");
     }
 
+    [HttpPost]
     public IActionResult ConfirmarCompra(Compra compra)
     {
         bd.ComprarProducto(compra);
+        ViewBag.ListaCategorias = bd.ListarCategorias();
         return View("Index");
+    }
+
+    public IActionResult EliminarProducto(int id_producto, int id_categoria)
+    {
+        bd.EliminarProducto(id_producto);
+        ViewBag.ListaProductos = bd.ListarProductosXCategoria(id_categoria);
+        ViewBag.Categoria = bd.ListarCategoriaXId(id_categoria);
+        ViewBag.Usuario = bd.DevolverUsuario();
+        if (ViewBag.ListaProductos.Count == 0) return View("CategoriaVacia");
+        else return View("Categoria");
+    }
+
+    [HttpPost]
+    public IActionResult AgregarProducto(Producto product, IFormFile imagen)
+    {
+        if (imagen.Length > 0)
+        {
+            string wwwRootLocal = this.Environment.ContentRootPath + @"wwwroot\img\" + imagen.FileName;
+            using (var stream = System.IO.File.Create(wwwRootLocal))
+            {
+                imagen.CopyTo(stream);
+            }
+            product.imagen = @"\img\" + imagen.FileName;
+        }
+        bd.CargarProducto(product);
+        ViewBag.ListaProductos = bd.ListarProductosXCategoria(product.id_categoria);
+        ViewBag.Categoria = bd.ListarCategoriaXId(product.id_categoria);
+        ViewBag.Usuario = bd.DevolverUsuario();
+        if (ViewBag.ListaProductos.Count == 0) return View("CategoriaVacia");
+        else return View("Categoria");
     }
 
     public IActionResult Privacy()

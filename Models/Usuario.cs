@@ -6,15 +6,16 @@ public class Usuario
     private int _id, _id_provincia;
     private string _nombre, _apellido, _email, _password, _direccion, _num_telefono;
     private DateTime _fecha_nacimiento;
-    private bool _administrador;
-    public Usuario(int id, string password, string nombre, string apellido, DateTime fecha_nacimiento, string direccion, int id_provincia, string num_telefono, string email, bool administrador)
+    private bool _administrador, _loggedin;
+    public Usuario(int id, string nombre, string apellido, string email, string password, DateTime fecha_nacimiento, string direccion, int id_provincia, string num_telefono, bool administrador, bool loggedin)
     {
-        _id = id; _nombre = nombre; _apellido = apellido; _email = email; _password = password; _fecha_nacimiento = fecha_nacimiento; _direccion = direccion; _id_provincia = id_provincia; _num_telefono = num_telefono; _administrador = administrador;
+        _id = id; _nombre = nombre; _apellido = apellido; _email = email; _password = password; _fecha_nacimiento = fecha_nacimiento; _direccion = direccion; _id_provincia = id_provincia; _num_telefono = num_telefono; _administrador = administrador; _loggedin = loggedin;
     }
-    public Usuario() { }
+    public Usuario() { _nombre = ""; _apellido = ""; _email = ""; _password = ""; _direccion = ""; _num_telefono = ""; }
     public int id
     {
         get { return _id; }
+        set { _id = value; }
     }
     public string nombre
     {
@@ -59,5 +60,11 @@ public class Usuario
     public bool administrador
     {
         get { return _administrador; }
+        set { _administrador = value; }
+    }
+    public bool loggedin
+    {
+        get { return _loggedin; }
+        set { _loggedin = value; }
     }
 }

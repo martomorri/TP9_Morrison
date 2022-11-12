@@ -1,37 +1,76 @@
-<h1>@ViewBag.Categoria</h1><br>
-<p></p>
+<h1>@ViewBag.Categoria.categoria</h1>
 
-<div class="text-center">
-    <img src="/img/cross.png"><br>
-    <p>Esta categoria aun esta vacia</p>
-</div>
-
-<button class="btn btn-light" style="position:absolute; right:20px; top:70%" onclick="AgregarProducto()" data-toggle="modal"
-    data-target="#modal"><img src="/img/nuevo.png" width="50px"></button>
-<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-    aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="titulo">
-                </h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="text-center">
-                    <img class="w-75" id="imagen" src=""><br>
+@{
+    string hidden = "";
+    if (!ViewBag.Usuario.administrador) hidden = "hidden";
+}
+<button class="btn btn-light" @hidden data-toggle="modal" data-target="#modalForm"><img class="mr-3"
+            src="/img/nuevo.png" width="25px">Agregar producto</button>
+    <div class="modal fade" id="modalForm" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="titulo">Agregar Producto
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
-                <div id="texto"></div><br>
-                <div class="text-center">
+                <div class="modal-body">
+                    <form method="post" action='@Url.Action("AgregarProducto","Home")' enctype="multipart/form-data">
+                        <div class="form-row">
+                            <div class="col">
+                                <label><strong>Nombre</strong></label>
+                                <input class="form-control" required type="text" name="nombre" />
+                            </div>
+                            <div class="col">
+                                <label><strong>Articulo</strong></label>
+                                <input class="form-control" required type="text" name="articulo" />
+                            </div>
+                        </div><br>
+                        <div class="form-row">
+                            <div class="col">
+                                <label><strong>Descripcion</strong></label>
+                                <textarea class="form-control" required name="descripcion"></textarea>
+                            </div>
+                            <input type="hidden" name="id_categoria" value="@ViewBag.Categoria.id">
+                        </div><br>
+                        <div class="form-row">
+                            <div class="col">
+                                <label><strong>Imagen</strong></label><br>
+                                <input required type="file" name="imagen" />
+                            </div>
+                        </div><br>
+                        <div class="form-row">
+                            <div class="col">
+                                <label><strong>Precio</strong></label>
+                                <input class="form-control" required type="number" name="precio" />
+                            </div>
+                            <div class="col">
+                                <label><strong>Color</strong></label>
+                                <input class="form-control" required type="text" name="color" />
+                            </div>
+                            <div class="col">
+                                <label><strong>Talle</strong></label>
+                                <input class="form-control" required type="text" name="talle" />
+                            </div>
+                        </div>
+                        <p></p>
+                        <input class="btn btn-primary" type="submit" value="Guardar" />
+                        <input class="btn btn-light" type="reset" value="Borrar los datos ingresados" />
+                    </form>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close">
-                    Seguir comprando
-                </button>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close">
+                        Seguir comprando
+                    </button>
+                </div>
             </div>
         </div>
     </div>
+
+<div class="text-center mt-5">
+    <img src="/img/cross.png"><br>
+    <p>Esta categoria aun esta vacia</p>
 </div>

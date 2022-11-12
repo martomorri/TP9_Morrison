@@ -32,3 +32,37 @@ C:\Users\46873102\Desktop\TP9_Morrison\obj\Debug\net6.0\refint\TP9_Morrison.dll
 C:\Users\46873102\Desktop\TP9_Morrison\obj\Debug\net6.0\TP9_Morrison.pdb
 C:\Users\46873102\Desktop\TP9_Morrison\obj\Debug\net6.0\TP9_Morrison.genruntimeconfig.cache
 C:\Users\46873102\Desktop\TP9_Morrison\obj\Debug\net6.0\ref\TP9_Morrison.dll
+C:\Users\marto\Documents\MARTIN ORT\4IB\Programacion 4IB\TP9_Morrison\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\marto\Documents\MARTIN ORT\4IB\Programacion 4IB\TP9_Morrison\bin\Debug\net6.0\appsettings.json
+C:\Users\marto\Documents\MARTIN ORT\4IB\Programacion 4IB\TP9_Morrison\bin\Debug\net6.0\TP9_Morrison.staticwebassets.runtime.json
+C:\Users\marto\Documents\MARTIN ORT\4IB\Programacion 4IB\TP9_Morrison\bin\Debug\net6.0\TP9_Morrison.exe
+C:\Users\marto\Documents\MARTIN ORT\4IB\Programacion 4IB\TP9_Morrison\bin\Debug\net6.0\TP9_Morrison.deps.json
+C:\Users\marto\Documents\MARTIN ORT\4IB\Programacion 4IB\TP9_Morrison\bin\Debug\net6.0\TP9_Morrison.runtimeconfig.json
+C:\Users\marto\Documents\MARTIN ORT\4IB\Programacion 4IB\TP9_Morrison\bin\Debug\net6.0\TP9_Morrison.dll
+C:\Users\marto\Documents\MARTIN ORT\4IB\Programacion 4IB\TP9_Morrison\bin\Debug\net6.0\TP9_Morrison.pdb
+C:\Users\marto\Documents\MARTIN ORT\4IB\Programacion 4IB\TP9_Morrison\bin\Debug\net6.0\Dapper.dll
+C:\Users\marto\Documents\MARTIN ORT\4IB\Programacion 4IB\TP9_Morrison\bin\Debug\net6.0\System.Data.SqlClient.dll
+C:\Users\marto\Documents\MARTIN ORT\4IB\Programacion 4IB\TP9_Morrison\bin\Debug\net6.0\runtimes\win-arm64\native\sni.dll
+C:\Users\marto\Documents\MARTIN ORT\4IB\Programacion 4IB\TP9_Morrison\bin\Debug\net6.0\runtimes\win-x64\native\sni.dll
+C:\Users\marto\Documents\MARTIN ORT\4IB\Programacion 4IB\TP9_Morrison\bin\Debug\net6.0\runtimes\win-x86\native\sni.dll
+C:\Users\marto\Documents\MARTIN ORT\4IB\Programacion 4IB\TP9_Morrison\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\marto\Documents\MARTIN ORT\4IB\Programacion 4IB\TP9_Morrison\bin\Debug\net6.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\marto\Documents\MARTIN ORT\4IB\Programacion 4IB\TP9_Morrison\obj\Debug\net6.0\TP9_Morrison.csproj.AssemblyReference.cache
+C:\Users\marto\Documents\MARTIN ORT\4IB\Programacion 4IB\TP9_Morrison\obj\Debug\net6.0\TP9_Morrison.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\marto\Documents\MARTIN ORT\4IB\Programacion 4IB\TP9_Morrison\obj\Debug\net6.0\TP9_Morrison.AssemblyInfoInputs.cache
+C:\Users\marto\Documents\MARTIN ORT\4IB\Programacion 4IB\TP9_Morrison\obj\Debug\net6.0\TP9_Morrison.AssemblyInfo.cs
+C:\Users\marto\Documents\MARTIN ORT\4IB\Programacion 4IB\TP9_Morrison\obj\Debug\net6.0\TP9_Morrison.csproj.CoreCompileInputs.cache
+C:\Users\marto\Documents\MARTIN ORT\4IB\Programacion 4IB\TP9_Morrison\obj\Debug\net6.0\TP9_Morrison.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\marto\Documents\MARTIN ORT\4IB\Programacion 4IB\TP9_Morrison\obj\Debug\net6.0\TP9_Morrison.RazorAssemblyInfo.cache
+C:\Users\marto\Documents\MARTIN ORT\4IB\Programacion 4IB\TP9_Morrison\obj\Debug\net6.0\TP9_Morrison.RazorAssemblyInfo.cs
+C:\Users\marto\Documents\MARTIN ORT\4IB\Programacion 4IB\TP9_Morrison\obj\Debug\net6.0\staticwebassets.build.json
+C:\Users\marto\Documents\MARTIN ORT\4IB\Programacion 4IB\TP9_Morrison\obj\Debug\net6.0\staticwebassets.development.json
+C:\Users\marto\Documents\MARTIN ORT\4IB\Programacion 4IB\TP9_Morrison\obj\Debug\net6.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\marto\Documents\MARTIN ORT\4IB\Programacion 4IB\TP9_Morrison\obj\Debug\net6.0\scopedcss\bundle\TP9_Morrison.styles.css
+C:\Users\marto\Documents\MARTIN ORT\4IB\Programacion 4IB\TP9_Morrison\obj\Debug\net6.0\scopedcss\projectbundle\TP9_Morrison.bundle.scp.css
+C:\Users\marto\Documents\MARTIN ORT\4IB\Programacion 4IB\TP9_Morrison\obj\Debug\net6.0\TP9_Morrison.csproj.CopyComplete
+C:\Users\marto\Documents\MARTIN ORT\4IB\Programacion 4IB\TP9_Morrison\obj\Debug\net6.0\TP9_Morrison.dll
+C:\Users\marto\Documents\MARTIN ORT\4IB\Programacion 4IB\TP9_Morrison\obj\Debug\net6.0\refint\TP9_Morrison.dll
+C:\Users\marto\Documents\MARTIN ORT\4IB\Programacion 4IB\TP9_Morrison\obj\Debug\net6.0\TP9_Morrison.pdb
+C:\Users\marto\Documents\MARTIN ORT\4IB\Programacion 4IB\TP9_Morrison\obj\Debug\net6.0\TP9_Morrison.genruntimeconfig.cache
+C:\Users\marto\Documents\MARTIN ORT\4IB\Programacion 4IB\TP9_Morrison\obj\Debug\net6.0\ref\TP9_Morrison.dll

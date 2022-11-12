@@ -10,7 +10,8 @@ using Dapper;
 namespace TP9_Morrison.Models;
 public static class bd
 {
-    private static string _connectionString = @"Server=A-PHZ2-CIDI-010; DataBase=Donnamia; Trusted_Connection=true;";
+    private static string _connectionString = @"Server=LAPTOP-B9I9AIHD\SQLEXPRESS; DataBase=Donnamia; Trusted_Connection=true;";
+    private static Usuario _userActual = new Usuario(0,"","","","",Convert.ToDateTime("1/1/1"),"",0,"",false,false);
     public static void CargarUsuario(Usuario user)
     {
         using (SqlConnection db = new SqlConnection(_connectionString))
@@ -18,6 +19,7 @@ public static class bd
             string sp = "CargarUsuario";
             db.Execute(sp, new { @nombre = user.nombre, @apellido = user.apellido, @email = user.email, @password = user.password, @fecha_nacimiento = user.fecha_nacimiento, @direccion = user.direccion, @id_provincia = user.id_provincia, @num_telefono = user.num_telefono, @administrador = user.administrador }, commandType: CommandType.StoredProcedure);
         }
+        _userActual = user;
     }
     public static List<Producto> ListarProductos()
     {
@@ -43,13 +45,14 @@ public static class bd
             return db.QueryFirstOrDefault<Producto>(sp, new { @id_producto = id_producto }, commandType: CommandType.StoredProcedure);
         }
     }
-    public static Usuario DevolverUsuario(int id_usuario)
+    public static Usuario DevolverUsuario()
     {
-        using (SqlConnection db = new SqlConnection(_connectionString))
+        /*using (SqlConnection db = new SqlConnection(_connectionString))
         {
-            string sp = "ListarUsuarioXID";
-            return db.QueryFirstOrDefault<Usuario>(sp, new { @id_usuario = id_usuario }, commandType: CommandType.StoredProcedure);
-        }
+            string sp = "ListarUsuario";
+            return db.QueryFirstOrDefault<Usuario>(sp, commandType: CommandType.StoredProcedure);
+        }*/
+        return _userActual;
     }
     public static List<Categoria> ListarCategorias()
     {
@@ -59,12 +62,12 @@ public static class bd
             return db.Query<Categoria>(sp, commandType: CommandType.StoredProcedure).ToList();
         }
     }
-    public static List<string> ListarProvincias()
+    public static List<Provincia> ListarProvincias()
     {
         using (SqlConnection db = new SqlConnection(_connectionString))
         {
             string sp = "ListarProvincias";
-            return db.Query<string>(sp, commandType: CommandType.StoredProcedure).ToList();
+            return db.Query<Provincia>(sp, commandType: CommandType.StoredProcedure).ToList();
         }
     }
     public static void CargarProducto(Producto product)
@@ -72,7 +75,7 @@ public static class bd
         using (SqlConnection db = new SqlConnection(_connectionString))
         {
             string sp = "CargarProducto";
-            db.Execute(sp, new {  }, commandType: CommandType.StoredProcedure);
+            db.Execute(sp, new { @nombre = product.nombre, @articulo = product.articulo, @descripcion = product.descripcion, @id_categoria = product.id_categoria, @imagen = product.imagen, @precio = product.precio, @color = product.color, @talle = product.talle }, commandType: CommandType.StoredProcedure);
         }
     }
     public static void EliminarProducto(int id_producto)
@@ -83,12 +86,19 @@ public static class bd
             db.Execute(sp, new { @id_producto = id_producto }, commandType: CommandType.StoredProcedure);
         }
     }
-    public static int VerificarLogin(string username, string password)
+    public static bool VerificarLogin(string email, string password)
     {
         using (SqlConnection db = new SqlConnection(_connectionString))
         {
             string sp = "VerificarLogin";
-            return db.QueryFirstOrDefault(sp, new { @username = username, @password = password }, commandType: CommandType.StoredProcedure);
+            bool loggedin = db.QueryFirstOrDefault<bool>(sp, new { @email = email, @password = password }, commandType: CommandType.StoredProcedure);
+            if (loggedin)
+            {
+                string sql = "SELECT * FROM Usuario WHERE email = @email";
+                _userActual = db.QueryFirstOrDefault<Usuario>(sql, new { @email = email });
+                _userActual.loggedin = true;
+            }
+            return loggedin;
         }
     }
     public static void ComprarProducto(Compra compra)
@@ -99,12 +109,12 @@ public static class bd
             db.Execute(sp, new { @id_usuario = compra.id_usuario, @id_producto = compra.id_producto, @nombre = compra.nombre, @apellido = compra.apellido, @dni = compra.dni, @num_tarjeta = compra.num_tarjeta, @fecha_vencimiento = compra.fecha_vencimiento, @cod_seguridad = compra.cod_seguridad }, commandType: CommandType.StoredProcedure);
         }
     }
-    public static string ListarCategoriaXId(int id_categoria)
+    public static Categoria ListarCategoriaXId(int id_categoria)
     {
         using (SqlConnection db = new SqlConnection(_connectionString))
         {
-            string sql = "SELECT categoria FROM Categoria WHERE id = @id_categoria";
-            return db.QueryFirstOrDefault<string>(sql, new { @id_categoria = id_categoria });
+            string sql = "SELECT * FROM Categoria WHERE id = @id_categoria";
+            return db.QueryFirstOrDefault<Categoria>(sql, new { @id_categoria = id_categoria });
         }
     }
 }

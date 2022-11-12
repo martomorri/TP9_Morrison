@@ -1,0 +1,12 @@
+<h1>@ViewBag.user.nombre @ViewBag.user.apellido</h1>
+
+<b>Email</b><br>
+<p>@ViewBag.user.email</p><br>
+<b>Fecha de Nacimiento</b><br>
+<p>@ViewBag.user.fecha_nacimiento.ToShortDateString()</p><br>
+<b>Direccion</b><br>
+<p>@ViewBag.user.direccion</p><br>
+<b>Provincia</b><br>
+<p>@ViewBag.ListaProvincias[ViewBag.user.id_provincia-1].provincia</p><br>
+<b>Numero de Telefono</b><br>
+<p>11 @ViewBag.user.num_telefono</p><br>
