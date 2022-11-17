@@ -50,8 +50,25 @@
                     </ul>
                     <ul class="navbar-nav mr-0 mt-2 mt-lg-0">
                         <li>
-                            <div class="text-center"><a href='@Url.Action("BotonUser","Home")' class="btn"><img
+                            <div class="text-center">
+                                <a href='@Url.Action("Compras","Home")' class="btn"><img
+                                        src="/img/carrito.png" width="35px" height="auto"></a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="text-center">                                
+                                <a href='@Url.Action("BotonUser","Home")' class="btn"><img
                                         src="/img/login.png" width="35px" height="auto"></a>
+                                @{
+                                    if (bd.DevolverUsuario().loggedin)
+                                    {
+                                        <span>@bd.DevolverUsuario().nombre @bd.DevolverUsuario().apellido</span>
+                                    }
+                                    else
+                                    {
+                                        <span>Iniciar Sesion</span>
+                                    }
+                                }
                             </div>
                         </li>
                     </ul>

@@ -1,4 +1,4 @@
-<h1>@ViewBag.Categoria.categoria</h1>
+<h1>@ViewBag.Categoria.categoria</h1><br>
 
 @{
     string hidden = "";
@@ -68,46 +68,62 @@
             </div>
         </div>
     </div>
-    foreach (Producto item in ViewBag.ListaProductos)
-    {
-        <div class="ml-5 col-3">
-            <div class="card mb-5" style="width: 18rem;">
-                <img src="@item.imagen" class="card-img-top">
-                <div class="card-body">
-                    <h5 class="card-title">@item.nombre</h5>
-                    <h6 class="text-success">$@item.precio</h6>
-                    <button class="btn btn-secondary" onclick="VerInfoProducto(@item.id)" class="btn btn-primary"
-                    data-toggle="modal" data-target="#modal">Ver
-                        mas</button>
-                    <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-                    aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="titulo"></h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="text-center">
-                                        <img class="w-75" id="imagen" src=""><br>
+    <div class="row">
+        @if (ViewBag.ListaProductos.Count > 0)
+        {
+            foreach (Producto item in ViewBag.ListaProductos)
+            {
+                <div class="ml-5 col-12 col-md-3">
+                    <div class="card mb-5" style="width: 18rem;">
+                        <img src="@item.imagen" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title">@item.nombre</h5>
+                            <h6 class="text-success">$@item.precio</h6>
+                            <button class="btn btn-secondary" onclick="VerInfoProducto(@item.id)" class="btn btn-primary"
+                        data-toggle="modal" data-target="#modal">Ver
+                                mas</button>
+                            <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+                        aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="titulo"></h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="text-center">
+                                                <img class="w-75" id="imagen" src=""><br>
+                                            </div>
+                                            <div id="texto"></div>
+                                            <a href='@Url.Action("Comprar","Home", new { id_producto = item.id })'
+                                        class="btn btn-primary">Comprar</a>
+                                            <a @hidden
+                                        href='@Url.Action("EliminarProducto","Home", new { id_producto = item.id, id_categoria = ViewBag.Categoria.id })'
+                                        class="btn btn-danger">Eliminar</a>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close">
+                                                Seguir comprando
+                                            </button>
+                                        </div>
                                     </div>
-                                    <div id="texto"></div>
-                                    <a href='@Url.Action("Comprar","Home", new { id_producto = item.id })' class="btn btn-primary">Comprar</a>
-                                    <a @hidden href='@Url.Action("EliminarProducto","Home", new { id_producto = item.id, id_categoria = ViewBag.Categoria.id })' class="btn btn-danger">Eliminar</a>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close">
-                                        Seguir comprando
-                                    </button>
                                 </div>
                             </div>
+                            <a class="btn btn-primary"
+                        href='@Url.Action("Comprar","Home", new { id_producto = item.id })'>Comprar</a>
                         </div>
                     </div>
-                    <a class="btn btn-primary" href='@Url.Action("Comprar","Home", new { id_producto = item.id })'>Comprar</a>
                 </div>
+            }
+        }
+        else
+        {
+            <div class="text-center">
+                <img src="/img/cross.png"><br>
+                <p>Esta categoria aun esta vacia</p>
             </div>
-        </div>
-    }
+        }
+    </div>
 }

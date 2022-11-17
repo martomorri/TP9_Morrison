@@ -74,8 +74,7 @@ public class HomeController : Controller
         ViewBag.ListaProductos = bd.ListarProductosXCategoria(id_categoria);
         ViewBag.Categoria = bd.ListarCategoriaXId(id_categoria);
         ViewBag.Usuario = bd.DevolverUsuario();
-        if (ViewBag.ListaProductos.Count == 0) return View("CategoriaVacia");
-        else return View();
+        return View();
     }
 
     public IActionResult BotonUser()
@@ -114,8 +113,7 @@ public class HomeController : Controller
         ViewBag.ListaProductos = bd.ListarProductosXCategoria(id_categoria);
         ViewBag.Categoria = bd.ListarCategoriaXId(id_categoria);
         ViewBag.Usuario = bd.DevolverUsuario();
-        if (ViewBag.ListaProductos.Count == 0) return View("CategoriaVacia");
-        else return View("Categoria");
+        return View("Categoria");
     }
 
     [HttpPost]
@@ -134,8 +132,32 @@ public class HomeController : Controller
         ViewBag.ListaProductos = bd.ListarProductosXCategoria(product.id_categoria);
         ViewBag.Categoria = bd.ListarCategoriaXId(product.id_categoria);
         ViewBag.Usuario = bd.DevolverUsuario();
-        if (ViewBag.ListaProductos.Count == 0) return View("CategoriaVacia");
-        else return View("Categoria");
+        return View("Categoria");
+    }
+    
+    public IActionResult Logout()
+    {
+        bd.Logout();
+        return View("Login");
+    }
+
+    public IActionResult Compras()
+    {
+        Usuario user = bd.DevolverUsuario();
+        if (!user.loggedin) return View("Login");
+        else
+        {
+            ViewBag.ListaCompras = bd.ListarComprasXID(user.id);
+            return View();
+        }
+    }
+
+    public IActionResult CancelarCompra(int id_compra)
+    {
+        bd.CancelarCompra(id_compra);
+        Usuario user = bd.DevolverUsuario();
+        ViewBag.ListaCompras = bd.ListarComprasXID(user.id);
+        return View("Compras");
     }
 
     public IActionResult Privacy()

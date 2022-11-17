@@ -10,8 +10,8 @@ using Dapper;
 namespace TP9_Morrison.Models;
 public static class bd
 {
-    private static string _connectionString = @"Server=LAPTOP-B9I9AIHD\SQLEXPRESS; DataBase=Donnamia; Trusted_Connection=true;";
-    private static Usuario _userActual = new Usuario(0,"","","","",Convert.ToDateTime("1/1/1"),"",0,"",false,false);
+    private static string _connectionString = @"Server=A-PHZ2-CIDI-013; DataBase=Donnamia; Trusted_Connection=true;";
+    private static Usuario _userActual = new Usuario(0, "", "", "", "", Convert.ToDateTime("1/1/1"), "", 0, "", false, false);
     public static void CargarUsuario(Usuario user)
     {
         using (SqlConnection db = new SqlConnection(_connectionString))
@@ -47,11 +47,6 @@ public static class bd
     }
     public static Usuario DevolverUsuario()
     {
-        /*using (SqlConnection db = new SqlConnection(_connectionString))
-        {
-            string sp = "ListarUsuario";
-            return db.QueryFirstOrDefault<Usuario>(sp, commandType: CommandType.StoredProcedure);
-        }*/
         return _userActual;
     }
     public static List<Categoria> ListarCategorias()
@@ -101,6 +96,10 @@ public static class bd
             return loggedin;
         }
     }
+    public static void Logout()
+    {
+        _userActual = new Usuario(0, "", "", "", "", Convert.ToDateTime("1/1/1"), "", 0, "", false, false);
+    }
     public static void ComprarProducto(Compra compra)
     {
         using (SqlConnection db = new SqlConnection(_connectionString))
@@ -115,6 +114,22 @@ public static class bd
         {
             string sql = "SELECT * FROM Categoria WHERE id = @id_categoria";
             return db.QueryFirstOrDefault<Categoria>(sql, new { @id_categoria = id_categoria });
+        }
+    }
+    public static List<Compra> ListarComprasXID(int id_usuario)
+    {
+        using (SqlConnection db = new SqlConnection(_connectionString))
+        {
+            string sql = "SELECT * FROM Compra WHERE id_usuario = @id_usuario";
+            return db.Query<Compra>(sql, new { @id_usuario = id_usuario }).ToList();
+        }
+    }
+    public static void CancelarCompra(int id_compra)
+    {
+        using (SqlConnection db = new SqlConnection(_connectionString))
+        {
+            string sql = "DELETE FROM Compra WHERE id = @id_compra";
+            db.Execute(sql, new { @id_compra = id_compra });
         }
     }
 }

@@ -1,0 +1,55 @@
+<h1>Mis compras</h1><br>
+
+@{
+    if (ViewBag.ListaCompras.Count > 0)
+    {
+        foreach (Compra item in ViewBag.ListaCompras)
+        {
+            Producto product = bd.ProductoXID(item.id_producto);
+            <div class="card mb-3" style="max-width: 540px;">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <img class="mr-5" src="@product.imagen" width="200px">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body ml-3">
+                            <h5 class="card-title">@product.nombre</h5>
+                            <p class="card-text">@product.descripcion</p>
+                            <b class="card-text text-primary">$@product.precio</b><br>
+                            <p></p>
+                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#staticBackdrop">
+                                Cancelar compra
+                            </button>
+                            <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="staticBackdropLabel">Cancelar compra</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            ¿Esta seguro de que quiere cancelar su compra?
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                                            <a href='@Url.Action("CancelarCompra","Home", new { id_compra = item.id })' class="btn btn-primary">Si</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        <div class="text-center">
+            <img src="/img/cross.png"><br>
+            <p>Aun no ha realizado ninguna compra</p>
+        </div>
+    }
+}

@@ -11,7 +11,7 @@
             {
                 $("#titulo").text(response.nombre);
                 $("#imagen").attr("src", response.imagen);
-                $("#texto").html(`<p>` + response.descripcion + `</p><b>Color</b><p>` + response.color + `</p><b>Talle</b><p>` + response.talle + `</p><h6 class="text-success" style="font-size:24px">$` + response.precio + `</h6>`);
+                $("#texto").html(`<br><p>` + response.descripcion + `</p><b>Color</b><p>` + response.color + `</p><b>Talle</b><p>` + response.talle + `</p><h6 class="text-success" style="font-size:24px">$` + response.precio + `</h6>`);
             }
         }
     )

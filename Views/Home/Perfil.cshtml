@@ -1,4 +1,4 @@
-<h1>@ViewBag.user.nombre @ViewBag.user.apellido</h1>
+<h1>@ViewBag.user.nombre @ViewBag.user.apellido</h1><br>
 
 <b>Email</b><br>
 <p>@ViewBag.user.email</p><br>
@@ -10,3 +10,6 @@
 <p>@ViewBag.ListaProvincias[ViewBag.user.id_provincia-1].provincia</p><br>
 <b>Numero de Telefono</b><br>
 <p>11 @ViewBag.user.num_telefono</p><br>
+
+<a href='@Url.Action("Compras","Home")' class="btn btn-primary">Mis Compras</a>
+<a href='@Url.Action("Logout","Home")' class="btn btn-danger">Cerrar Sesion</a>
